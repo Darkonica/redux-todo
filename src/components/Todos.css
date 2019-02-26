@@ -1,0 +1,42 @@
+.todo {
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.todo__item {
+  position: relative;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.todo__content {
+  padding: 15px 25px;
+  margin-bottom: 10px;
+  border: 1px solid cyan;
+  border-radius: 10px;
+  transition: box-shadow 0.15s ease-out;
+  cursor: pointer;
+}
+.todo__content:last-of-type {
+  margin-bottom: 0px;
+}
+.todo__content:hover {
+  box-shadow: 0px 0px 8px cyan;
+}
+
+.todo__controls {
+  visibility: hidden;
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around
+}
+.todo__control-item {
+  font-size: 12px;
+  text-decoration: underline;
+}
+.todo__item:hover .todo__controls {
+  visibility: visible;
+}
