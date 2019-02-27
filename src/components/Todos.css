@@ -36,6 +36,7 @@
 .todo__control-item {
   font-size: 12px;
   text-decoration: underline;
+  cursor: pointer;
 }
 .todo__item:hover .todo__controls {
   visibility: visible;

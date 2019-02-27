@@ -10,8 +10,15 @@ export default function Todos(props) {
         <div className="todo__item" key={item.id}>
           <div className="todo__content">{item.content}</div>
           <div className="todo__controls">
-            <div className="todo__edit">edit</div>
-            <div className="todo__delete">del</div>
+            <div className="todo__control-item todo__control-item_edit">
+              edit
+            </div>
+            <div
+              className="todo__control-item todo__control-item_delete"
+              onClick={() => props.deleteTodo(item.id)}
+            >
+              del
+            </div>
           </div>
         </div>
       );
