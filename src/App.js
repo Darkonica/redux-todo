@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Todos from "./components/Todos";
+import Todos from "./components/Todos/Todos";
+import AddTodo from "./components/AddTodo/AddTodo";
 import "./App.css";
 
 class App extends Component {
@@ -25,10 +26,20 @@ class App extends Component {
     this.setState({ todos });
   };
 
+  handlerAddTodo = content => {
+    const id = this.state.todos.length
+      ? this.state.todos[this.state.todos.length - 1].id + 1
+      : 1;
+    this.setState(prevState => ({
+      todos: [...prevState.todos, { id, content }],
+    }));
+  };
+
   render() {
     return (
       <div className="App">
         <h1>Todos</h1>
+        <AddTodo onSubmit={this.handlerAddTodo} />
         <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
       </div>
     );

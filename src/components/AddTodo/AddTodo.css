@@ -1,0 +1,36 @@
+.addtodo {
+  max-width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 30px;
+}
+
+.addtodo__form {
+  width: 100%;
+  display: flex;
+}
+
+.addtodo__input {
+  flex-grow: 1;
+  font-size: 16px;
+  color: rgb(0, 134, 134);
+  margin-right: 10px;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid rgb(0, 134, 134);
+}
+
+.addtodo__input::placeholder {
+  font-size: 16px;
+  color: rgb(0, 134, 134);
+}
+
+.addtodo__button {
+  flex-basis: 200px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  background:rgb(0, 134, 134);
+  cursor: pointer;
+}
