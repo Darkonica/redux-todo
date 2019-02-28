@@ -31,7 +31,7 @@ class App extends Component {
       if (todo.id === id) todo.text = text;
       return todo;
     });
-    console.log(todos);
+
     this.setState({
       todos,
     });

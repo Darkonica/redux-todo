@@ -3,7 +3,6 @@ import TodoItem from "../TodoItem/TodoItem";
 import "./Todos.css";
 
 export default function Todos(props) {
-  // const todoList = props.todos.length ? : <p>You have no todos</p>
   let todoList;
   if (props.todos.length) {
     todoList = props.todos.map(item => {

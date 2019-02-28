@@ -4,6 +4,7 @@ import "./TodoItem.css";
 export default class TodoItem extends Component {
   constructor(props) {
     super(props);
+    this.textInput = React.createRef();
 
     this.state = {
       text: this.props.text,
@@ -19,16 +20,29 @@ export default class TodoItem extends Component {
   };
 
   handlerEdit = e => {
-    this.setState({
-      editToggle: !this.state.editToggle,
-    });
+    // this.state.editToggle
+    //   ? this.textInput.current.focus()
+    //   : this.textInput.current.blur();
+    this.setState(
+      {
+        editToggle: !this.state.editToggle,
+      },
+      () => this.state.editToggle && this.textInput.current.focus()
+    );
   };
 
-  handlerSubmit = e => {
+  handlerEnterKey = e => {
+    if (e.keyCode === 13) {
+      this.handlerSubmit();
+    }
+  };
+
+  handlerSubmit = () => {
     this.setState(
       {
         editToggle: false,
       },
+      () => this.textInput.current && this.textInput.current.blur(),
       () => this.props.editTodo(this.props.id, this.state.text)
     );
   };
@@ -43,6 +57,8 @@ export default class TodoItem extends Component {
           value={this.state.text}
           onChange={this.handlerChange}
           onBlur={this.handlerSubmit}
+          onKeyDown={this.handlerEnterKey}
+          ref={this.textInput}
         />
       );
     } else {
