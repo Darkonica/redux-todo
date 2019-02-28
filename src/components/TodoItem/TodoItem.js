@@ -19,7 +19,7 @@ export default class TodoItem extends Component {
     });
   };
 
-  handleEdit = e => {
+  handleEdit = () => {
     this.setState(
       {
         editToggle: !this.state.editToggle,
@@ -64,7 +64,10 @@ export default class TodoItem extends Component {
 
     return (
       <div className="todo__item">
-        <div className="todo__content" onClick={this.handleComplete}>
+        <div
+          className={`todo__content ${this.props.done && "todo__content_done"}`}
+          onClick={() => this.props.completeTodo(this.props.id)}
+        >
           {text}
         </div>
         <div className="todo__controls">

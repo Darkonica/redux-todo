@@ -10,12 +10,21 @@
   border: 1px solid cyan;
   border-radius: 10px;
   transition: box-shadow 0.15s ease-out;
+  cursor: pointer;
 }
 .todo__content:last-of-type {
   margin-bottom: 0px;
 }
 .todo__content:hover {
   box-shadow: 0px 0px 8px cyan;
+}
+.todo__content_done {
+  text-decoration: line-through;
+  background: #efefef;
+  border-color: #efefef;
+}
+.todo__content_done:hover {
+  box-shadow: 0px 0px 8px #efefef;
 }
 
 .todo__edit-input {

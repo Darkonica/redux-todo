@@ -12,10 +12,12 @@ class App extends Component {
         {
           id: 1,
           text: "buy some milk",
+          done: false,
         },
         {
           id: 2,
           text: "buy some bread",
+          done: false,
         },
       ],
     };
@@ -29,6 +31,17 @@ class App extends Component {
   handleEditTodo = (id, text) => {
     let todos = this.state.todos.map(todo => {
       if (todo.id === id) todo.text = text;
+      return todo;
+    });
+
+    this.setState({
+      todos,
+    });
+  };
+
+  handleComplete = id => {
+    let todos = this.state.todos.map(todo => {
+      if (todo.id === id) todo.done = !todo.done;
       return todo;
     });
 
@@ -55,6 +68,7 @@ class App extends Component {
           todos={this.state.todos}
           deleteTodo={this.handleDeleteTodo}
           getEditedTodo={this.handleEditTodo}
+          completeTodo={this.handleComplete}
         />
       </div>
     );
