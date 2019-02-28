@@ -40,7 +40,7 @@ export default class TodoItem extends Component {
         editToggle: false,
       },
       () => this.textInput.current && this.textInput.current.blur(),
-      () => this.props.editTodo(this.props.id, this.state.text)
+      this.props.editTodo(this.props.id, this.state.text)
     );
   };
 
@@ -65,7 +65,8 @@ export default class TodoItem extends Component {
     return (
       <div className="todo__item">
         <div
-          className={`todo__content ${this.props.done && "todo__content_done"}`}
+          className={`todo__content ${this.props.completed &&
+            "todo__content_completed"}`}
           onClick={() => this.props.completeTodo(this.props.id)}
         >
           {text}

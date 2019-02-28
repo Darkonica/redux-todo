@@ -11,9 +11,9 @@ export default function Todos(props) {
           id={item.id}
           key={item.id}
           text={item.text}
-          done={item.done}
+          completed={item.completed}
           deleteTodo={props.deleteTodo}
-          editTodo={props.getEditedTodo}
+          editTodo={props.editTodo}
           completeTodo={props.completeTodo}
         />
       );

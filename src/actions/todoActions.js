@@ -6,20 +6,24 @@ export function addTodo() {
   };
 }
 
-export function editTodo() {
+export function editTodo(id, text) {
   return {
     type: types.EDIT_TODO,
+    id,
+    text,
   };
 }
 
-export function deleteTodo() {
+export function deleteTodo(id) {
   return {
     type: types.DELETE_TODO,
+    id,
   };
 }
 
-export function completeTodo() {
+export function completeTodo(id) {
   return {
     type: types.COMPLETE_TODO,
+    id,
   };
 }

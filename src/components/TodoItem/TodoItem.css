@@ -18,12 +18,12 @@
 .todo__content:hover {
   box-shadow: 0px 0px 8px cyan;
 }
-.todo__content_done {
+.todo__content_completed {
   text-decoration: line-through;
   background: #efefef;
   border-color: #efefef;
 }
-.todo__content_done:hover {
+.todo__content_completed:hover {
   box-shadow: 0px 0px 8px #efefef;
 }
 
