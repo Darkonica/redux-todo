@@ -21,12 +21,12 @@ class App extends Component {
     };
   }
 
-  handlerDeleteTodo = id => {
+  handleDeleteTodo = id => {
     const todos = this.state.todos.filter(todo => todo.id !== id);
     this.setState({ todos });
   };
 
-  handlerEditTodo = (id, text) => {
+  handleEditTodo = (id, text) => {
     let todos = this.state.todos.map(todo => {
       if (todo.id === id) todo.text = text;
       return todo;
@@ -37,7 +37,7 @@ class App extends Component {
     });
   };
 
-  handlerAddTodo = text => {
+  handleAddTodo = text => {
     const id = this.state.todos.length
       ? this.state.todos[this.state.todos.length - 1].id + 1
       : 1;
@@ -50,11 +50,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Todos</h1>
-        <AddTodo onSubmit={this.handlerAddTodo} />
+        <AddTodo onSubmit={this.handleAddTodo} />
         <Todos
           todos={this.state.todos}
-          deleteTodo={this.handlerDeleteTodo}
-          getEditedTodo={this.handlerEditTodo}
+          deleteTodo={this.handleDeleteTodo}
+          getEditedTodo={this.handleEditTodo}
         />
       </div>
     );

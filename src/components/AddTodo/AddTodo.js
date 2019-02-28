@@ -9,14 +9,14 @@ export default class AddTodo extends Component {
     };
   }
 
-  handlerChange = e => {
+  handleChange = e => {
     const text = e.target.value;
     this.setState({
       text,
     });
   };
 
-  handlerSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
     if (this.state.text) {
       const text = this.state.text;
@@ -30,13 +30,13 @@ export default class AddTodo extends Component {
   render() {
     return (
       <div className="addtodo">
-        <form onSubmit={this.handlerSubmit} className="addtodo__form">
+        <form onSubmit={this.handleSubmit} className="addtodo__form">
           <input
             type="text"
             placeholder="buy fruits"
             className="addtodo__input"
             value={this.state.text}
-            onChange={this.handlerChange}
+            onChange={this.handleChange}
           />
           <button type="submit" className="addtodo__button">
             Add

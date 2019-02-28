@@ -12,17 +12,14 @@ export default class TodoItem extends Component {
     };
   }
 
-  handlerChange = e => {
+  handleChange = e => {
     const text = e.target.value;
     this.setState({
       text,
     });
   };
 
-  handlerEdit = e => {
-    // this.state.editToggle
-    //   ? this.textInput.current.focus()
-    //   : this.textInput.current.blur();
+  handleEdit = e => {
     this.setState(
       {
         editToggle: !this.state.editToggle,
@@ -31,13 +28,13 @@ export default class TodoItem extends Component {
     );
   };
 
-  handlerEnterKey = e => {
+  handleEnterKey = e => {
     if (e.keyCode === 13) {
-      this.handlerSubmit();
+      this.handleSubmit();
     }
   };
 
-  handlerSubmit = () => {
+  handleSubmit = () => {
     this.setState(
       {
         editToggle: false,
@@ -55,9 +52,9 @@ export default class TodoItem extends Component {
           type="text"
           className="todo__edit-input"
           value={this.state.text}
-          onChange={this.handlerChange}
-          onBlur={this.handlerSubmit}
-          onKeyDown={this.handlerEnterKey}
+          onChange={this.handleChange}
+          onBlur={this.handleSubmit}
+          onKeyDown={this.handleEnterKey}
           ref={this.textInput}
         />
       );
@@ -67,11 +64,13 @@ export default class TodoItem extends Component {
 
     return (
       <div className="todo__item">
-        <div className="todo__content">{text}</div>
+        <div className="todo__content" onClick={this.handleComplete}>
+          {text}
+        </div>
         <div className="todo__controls">
           <div
             className="todo__control-item todo__control-item_edit"
-            onClick={this.handlerEdit}
+            onClick={this.handleEdit}
           >
             edit
           </div>
