@@ -11,6 +11,7 @@
 }
 
 .addtodo__input {
+  font-family: 'Roboto', sans-serif;
   flex-grow: 1;
   font-size: 16px;
   color: rgb(0, 134, 134);
@@ -27,6 +28,7 @@
 
 .addtodo__button {
   flex-basis: 200px;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   font-weight: 600;
   color: #fff;

@@ -11,27 +11,38 @@ class App extends Component {
       todos: [
         {
           id: 1,
-          content: "buy some milk",
+          text: "buy some milk",
         },
         {
           id: 2,
-          content: "buy some bread",
+          text: "buy some bread",
         },
       ],
     };
   }
 
-  deleteTodo = id => {
+  handlerDeleteTodo = id => {
     const todos = this.state.todos.filter(todo => todo.id !== id);
     this.setState({ todos });
   };
 
-  handlerAddTodo = content => {
+  handlerEditTodo = (id, text) => {
+    let todos = this.state.todos.map(todo => {
+      if (todo.id === id) todo.text = text;
+      return todo;
+    });
+    console.log(todos);
+    this.setState({
+      todos,
+    });
+  };
+
+  handlerAddTodo = text => {
     const id = this.state.todos.length
       ? this.state.todos[this.state.todos.length - 1].id + 1
       : 1;
     this.setState(prevState => ({
-      todos: [...prevState.todos, { id, content }],
+      todos: [...prevState.todos, { id, text }],
     }));
   };
 
@@ -40,7 +51,11 @@ class App extends Component {
       <div className="App">
         <h1>Todos</h1>
         <AddTodo onSubmit={this.handlerAddTodo} />
-        <Todos todos={this.state.todos} deleteTodo={this.deleteTodo} />
+        <Todos
+          todos={this.state.todos}
+          deleteTodo={this.handlerDeleteTodo}
+          getEditedTodo={this.handlerEditTodo}
+        />
       </div>
     );
   }

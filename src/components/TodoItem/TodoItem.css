@@ -1,0 +1,47 @@
+.todo__item {
+  position: relative;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.todo__content {
+  height: 20px;
+  padding: 15px 25px;
+  margin-bottom: 10px;
+  border: 1px solid cyan;
+  border-radius: 10px;
+  transition: box-shadow 0.15s ease-out;
+}
+.todo__content:last-of-type {
+  margin-bottom: 0px;
+}
+.todo__content:hover {
+  box-shadow: 0px 0px 8px cyan;
+}
+
+.todo__edit-input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  text-align: center;
+  padding: 0px;
+  border: none;
+  border-bottom: 2px solid rgb(0, 134, 134);
+}
+
+.todo__controls {
+  visibility: hidden;
+  position: absolute;
+  height: 100%;
+  top: 0px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around
+}
+.todo__control-item {
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.todo__item:hover .todo__controls {
+  visibility: visible;
+}

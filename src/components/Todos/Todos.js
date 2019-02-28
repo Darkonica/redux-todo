@@ -1,4 +1,5 @@
 import React from "react";
+import TodoItem from "../TodoItem/TodoItem";
 import "./Todos.css";
 
 export default function Todos(props) {
@@ -7,20 +8,13 @@ export default function Todos(props) {
   if (props.todos.length) {
     todoList = props.todos.map(item => {
       return (
-        <div className="todo__item" key={item.id}>
-          <div className="todo__content">{item.content}</div>
-          <div className="todo__controls">
-            <div className="todo__control-item todo__control-item_edit">
-              edit
-            </div>
-            <div
-              className="todo__control-item todo__control-item_delete"
-              onClick={() => props.deleteTodo(item.id)}
-            >
-              del
-            </div>
-          </div>
-        </div>
+        <TodoItem
+          id={item.id}
+          key={item.id}
+          text={item.text}
+          deleteTodo={props.deleteTodo}
+          editTodo={props.getEditedTodo}
+        />
       );
     });
   } else {
