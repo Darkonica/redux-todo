@@ -1,8 +1,9 @@
 import * as types from "./actionTypes";
 
-export function addTodo() {
+export function addTodo(text) {
   return {
     type: types.ADD_TODO,
+    text,
   };
 }
 

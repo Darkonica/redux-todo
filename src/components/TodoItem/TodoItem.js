@@ -67,7 +67,10 @@ export default class TodoItem extends Component {
         <div
           className={`todo__content ${this.props.completed &&
             "todo__content_completed"}`}
-          onClick={() => this.props.completeTodo(this.props.id)}
+          onClick={() => {
+            if (!this.state.editToggle)
+              return this.props.completeTodo(this.props.id);
+          }}
         >
           {text}
         </div>

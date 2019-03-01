@@ -53,20 +53,20 @@ class App extends Component {
   //   });
   // };
 
-  handleAddTodo = text => {
-    const id = this.state.todos.length
-      ? this.state.todos[this.state.todos.length - 1].id + 1
-      : 1;
-    this.setState(prevState => ({
-      todos: [...prevState.todos, { id, text }],
-    }));
-  };
+  // handleAddTodo = text => {
+  //   const id = this.state.todos.length
+  //     ? this.state.todos[this.state.todos.length - 1].id + 1
+  //     : 1;
+  //   this.setState(prevState => ({
+  //     todos: [...prevState.todos, { id, text }],
+  //   }));
+  // };
 
   render() {
     return (
       <div className="App">
         <h1>Todos</h1>
-        <AddTodo onSubmit={this.handleAddTodo} />
+        <AddTodo onSubmit={this.props.addTodo} />
         <Todos
           todos={this.props.todos}
           deleteTodo={this.props.deleteTodo}
@@ -86,6 +86,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
+    addTodo: text => {
+      dispatch(todoActions.addTodo(text));
+    },
     editTodo: (id, text) => {
       dispatch(todoActions.editTodo(id, text));
     },
