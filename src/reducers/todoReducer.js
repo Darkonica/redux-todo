@@ -12,12 +12,8 @@ export default function todos(state = initialState.todos, action) {
     case ADD_TODO:
       console.log("ADD_TODO action");
       const id = state.length ? state[state.length - 1].id + 1 : 1;
-      const dateCreation = new Date();
 
-      return [
-        ...state,
-        { id, text: action.text, completed: false, dateCreation },
-      ];
+      return [...state, { id, text: action.text, completed: false }];
 
     case EDIT_TODO:
       console.log("EDIT_TODO action");

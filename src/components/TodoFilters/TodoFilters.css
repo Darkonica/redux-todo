@@ -1,0 +1,15 @@
+.todo-filters ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.todo-filters li {
+  margin-bottom: 10px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.todo-filters li.active {
+  text-decoration: underline;
+}

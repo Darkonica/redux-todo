@@ -1,7 +1,23 @@
 .App {
-  max-width: 800px;
+  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
+}
+
+.App > h1 {
   text-align: center;
+}
+
+.App .content {
+  display: flex;
+}
+
+.App aside {
+  width: 200px;
+}
+
+.App main {
+  width: 100%;
+  max-width: 800px;
 }
 
